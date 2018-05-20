@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+
+    <div class="center-align">
+        <h4>Welcome {{ request.user.first_name }}</h4>
+    </div>
+    <p><h5 class="center-align">First name: {{user.first_name}}</h5></p>
+    <p><h5 class="center-align">Last name: {{user.last_name}}</h5></p>
+    <p><h5 class="center-align">Email: {{user.email}}</h5></p>
+</div>
+{% endblock %}

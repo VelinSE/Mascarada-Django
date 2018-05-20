@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="center-align">
+        <h4>My tickets!</h4>
+    </div>
+
+    {% for ticket in tickets %}
+        <h5 class="center-align">Ticket</h5>
+        <h6 class="center-align">Name: {{ticket.first_name}} {{ticket.last_name}}</h6>
+        <h6 class="center-align">Email: {{ticket.email}}</h6>
+        <h6 class="center-align">Birth date: {{ticket.birth_date}}</h6>
+        <h6 class="center-align">Money: {{ticket.event_money}}€</h6>
+    {% endfor %}
+{% endblock body  %}

@@ -98,8 +98,15 @@ DATABASES = {
 AUTH_USER_MODEL = 'custom_auth.CustomUser' 
 BASE_AUTH_USER = 'custom_auth.CustomUser'
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'mascarada.event@gmail.com'
+EMAIL_HOST_PASSWORD = 'mascarada1'
+
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 1025
 
 #LOGIN_REDIRECT_URL = '/account/profile'
 

@@ -1,14 +1,8 @@
 <html>
     <head>
-
     </head>
     <body>
         {% load qr_code %}
-        <div class="container">
-            <div class="center-align">
-                    Welcome to mascarada!!!
-                    {% qr_from_text text size="m" image_format="png" error_correction="L" %}
-            </div>
-        </div>
+        {% qr_from_text text size="m" image_format="png" error_correction="L" %}
     </body>
 </html>

@@ -1,5 +1,6 @@
 from camping.models import Camping
 from camping.forms import ReservationForm
+from tickets.models import Visitor
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -8,16 +9,17 @@ import random
 
 @login_required
 def reserve(request):
+    campings = Camping.objects.all()
+
     if request.method == 'POST':
-        form = ReservationForm(request.POST)
-        tent = request.POST.get('tent')
+        form = ReservationForm(data=request.POST, email_options=Visitor.objects.filter(user = request.user))
         if form.is_valid():
-            form.save(tent)
-            return redirect('/tickets/my-tickets/') 
-        return render(request, 'reserve.html', { 'form' : form })
+            if form.save():
+                return redirect('/tickets/my-tickets/') 
+        return render(request, 'reserve.html', { 'form' : form , 'campings' : campings })
     else:
-        form = ReservationForm()
-        args = { 'form' : form }
+        form = ReservationForm(email_options=Visitor.objects.filter(user = request.user))
+        args = { 'form' : form , 'campings' : campings}
         return render(request, 'reserve.html', args)
 
 def seed_campings(request):

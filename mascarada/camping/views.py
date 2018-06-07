@@ -29,3 +29,24 @@ def seed_campings(request):
         camp.save()
 
     return redirect('/camping/reserve/')
+
+def camping(request):
+    campings = Camping.objects.all()
+    camp_options = campings.values()
+    bed_options = campings.order_by('free_beds').values('free_beds').distinct()
+    
+    if request.method == 'POST':
+        form = ReservationForm(data=request.POST, email_options=Visitor.objects.filter(user = request.user), camp_options=camp_options, bed_options=bed_options)
+
+        if form.is_valid():
+            if form.save():
+                return redirect('/tickets/my-tickets/')
+
+        return render(request, 'camping.html', { 'form' : form , 'campings' : campings, })
+    else:
+        form = ReservationForm(email_options=Visitor.objects.filter(user = request.user), camp_options=camp_options, bed_options=bed_options)        
+        args = { 'form' : form , 'campings' : campings, }
+
+        return render(request, 'camping.html', args)
+
+    

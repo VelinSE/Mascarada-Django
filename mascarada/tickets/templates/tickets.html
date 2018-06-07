@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark green lighten-3 fixed-top scrolling-navbar" id="main-nav">
+{% endblock %}
+
+{% block body %}
+<section class="main-section mt-5">
+        <div class="row ml-5 p-5">
+            <form method="post" class="ml-5">
+                {% csrf_token %}
+               
+                {% for field in form %}
+                    <div class='md-form'>
+                        {{ field }}
+                        {% if field.value is none %}
+                            <label for="{{ field.id_for_label }}"> {{ field.label }} </label>
+                        {% else %}
+                        <label for="{{ field.id_for_label }}" class="active"> {{ field.label }} </label>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+        
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            
+        
+                <div class="center-align">
+                    <button class="btn green lighten-3" type="submit">Purchase</button>
+                </div>
+            </form>
+            <div class="tickets-illustration col-sm-6">
+                <img src="{% static 'img/people-fun.svg' %}" alt="people illustration">
+            </div>
+        </div>
+
+    </section>
+    <script src="{% static 'js/formController.js' %}"></script>
+{% endblock %}

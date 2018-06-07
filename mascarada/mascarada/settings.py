@@ -59,7 +59,7 @@ ROOT_URLCONF = 'mascarada.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join('custom_auth', 'templates')],
+        'DIRS': [os.path.join('custom_auth', 'templates'), os.path.join('mascarada', 'templates'), os.path.join('camping', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,12 +86,7 @@ DATABASES = {
         'PASSWORD': '123456',
         'HOST': '192.168.15.54'
     },
-    'default1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prop_test',
-        'USER' : 'root',
-        'PASSWORD' : 'staiki'
-    }
+    
 }
 
 # ADDED BY DEVELOPERS
@@ -149,3 +144,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "mascarada/static/mascarada"),
+]
+

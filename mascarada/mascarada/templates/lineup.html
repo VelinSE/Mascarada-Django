@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header>
+                    
+        <nav class="navbar navbar-expand-lg navbar-dark red lighten-3 p-0 fixed-top scrolling-navbar" id="main-nav">
+{% endblock %}
+
+{% block body %}
+
+<section class="main-section mt-5">
+    <div class="image-grid  grid-container">
+        <div class="image-container">
+            <a href="artist">
+                <div class="align-items-end justify-content-center overlay ">
+                    <div class="z-depth-1">Carl Cox</div>
+                </div>
+                <img src="{% static 'img/carl-cox.png' %}" alt="carl cox">
+            </a>
+
+        </div>
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Armin Van Buuren</div>
+                </div>
+                <img src="{% static 'img/armin-van-buuren.png' %}" alt="armin van buuren">
+            </a>
+        </div>
+
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Hardwell</div>
+                </div>
+                <img src="{% static 'img/hardwell.png' %}" alt="hardwell">
+            </a>
+
+        </div>
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Calvin Harris</div>
+                </div>
+                <img src="{% static 'img/150818-zimmerman-calvin-harris-tease_waufgj.jpg' %}" alt="calvin harris">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Marshmello</div>
+                </div>
+                <img src="{% static 'img/Marshmello.png' %}" alt="marshmello">
+            </a>
+
+        </div>
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Ummet Ozcan</div>
+                </div>
+                <img src="{% static 'img/ummet_ozcan.jpg' %}" alt="ummet ozcan">
+            </a>
+
+        </div>
+    </div>
+
+</section>
+<footer class="footer d-flex flex-column justify-content-end">
+        <div class="row links">
+            <div class="col-sm-6 d-flex  justify-content-around">
+                <a href="tickets">Buy tickets</a>
+            </div>
+            <div class="col-sm-6 ">
+                <ul class="social-icons d-flex justify-content-center">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-end mt-2">
+            <p class="copyright">
+                Copyright &copy; 2018 by UDown and MusicVite. All rights reserved.
+            </p>
+        </div>
+    </footer>
+{% endblock %}

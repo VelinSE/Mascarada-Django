@@ -1,4 +1,5 @@
 from datetime import datetime
+from django import forms
 from django.forms import ModelForm
 from tickets.models import Visitor
 
@@ -11,6 +12,13 @@ class VisitorCreationForm(ModelForm):
             'email',
             'birth_date'
         )
+
+        widgets = {
+            'first_name' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'last_name' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'email': forms.TextInput(attrs={'class' : 'form-control'}),
+            'birth_date' : forms.TextInput(attrs={'class' : 'form-control'}),
+        }
 
     def save(self, user, commit = True):
         visitor = super(VisitorCreationForm, self).save(commit=False)

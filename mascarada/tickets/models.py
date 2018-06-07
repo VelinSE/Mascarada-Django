@@ -14,7 +14,7 @@ class Visitor(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
-    rfid_code = models.CharField(max_length=10)
+    rfid_code = models.CharField(max_length=10, unique=True)
     birth_date = models.DateField()
     event_money = models.DecimalField(decimal_places=2, max_digits=10)
     user = models.ForeignKey(CustomUser, on_delete=models.PROTECT)

@@ -122,6 +122,14 @@ REUSABLE COMPONENTS
     width: 100%;
 }
 
+.iceland-font {
+    font-family: 'Iceland', sans-serif;
+    font-size: 280%; 
+}
+
+    .navbar .iceland-font {
+        font-size: 220%;
+    }
 
 /* --- Footer --- */
 

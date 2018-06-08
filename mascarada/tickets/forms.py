@@ -23,6 +23,8 @@ class VisitorCreationForm(ModelForm):
     def save(self, user, commit = True):
         visitor = super(VisitorCreationForm, self).save(commit=False)
 
+        print(self.cleaned_data)
+
         visitor.first_name = self.cleaned_data['first_name']
         visitor.last_name = self.cleaned_data['last_name']
         visitor.email = self.cleaned_data['email']
@@ -31,7 +33,7 @@ class VisitorCreationForm(ModelForm):
         visitor.user = user
         visitor.event_money = 0
 
-        if commit:
-            visitor.save()
+        # if commit:
+        #     visitor.save()
         
         return visitor

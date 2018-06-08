@@ -9,9 +9,9 @@
 
 {% block body %}
 <section class="main-section mt-5">
-        <h4>Reserve camping spot!</h4>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+                <h4 class="iceland-font">Reserve camping spot!</h4>
                 <form class="" method="post">
                     {% csrf_token %}
                     <div class="input-field">
@@ -52,10 +52,26 @@
                     </div>
                 </form>
             </div>
-            
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7">
+                    <img id="myImg" src="{% static 'img\campingMap.png' %}">
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal p-4">
+
+                        <!-- The Close Button -->
+                        <span class="close">&times;</span>
+
+                        <!-- Modal Content (The Image) -->
+                        
+                        <img class="modal-content" id="img01">
+                        
+                    </div>
+            </div>
         </div>
     
 </section>
 
 <script src="{% static 'js/campFormController.js' %}"></script>
+<script src="{% static 'js/modalController.js' %}"></script>
 {% endblock body %}

@@ -25,6 +25,7 @@ def my_tickets(request):
     args = { 'tickets' : tickets }
     return render(request, 'my-tickets.html', args)
 
+
 def tickets(request):
     if  request.method == 'POST':
         form = VisitorCreationForm(request.POST)

@@ -33,7 +33,7 @@ REUSABLE COMPONENTS
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-template-rows: 300px;
     grid-gap: 1em;
 }
@@ -124,11 +124,11 @@ REUSABLE COMPONENTS
 
 .iceland-font {
     font-family: 'Iceland', sans-serif;
-    font-size: 280%; 
+    font-size: 340%; 
 }
 
     .navbar .iceland-font {
-        font-size: 220%;
+        font-size: 200%;
     }
 
 /* --- Footer --- */
@@ -427,7 +427,7 @@ REUSABLE COMPONENTS
 #myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
-.modal {
+.my-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 9999; /* Sit on top */
@@ -441,7 +441,7 @@ REUSABLE COMPONENTS
 }
 
 /* Modal Content (Image) */
-.modal-content {
+.my-modal .modal-content {
     margin: auto;
     display: block;
     width: 80%;

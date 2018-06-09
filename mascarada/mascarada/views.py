@@ -5,3 +5,5 @@ def index(request):
 
 def lineup(request):
     return render(request, 'lineup.html')
+
+

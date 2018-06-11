@@ -18,7 +18,7 @@ $(document).ready(function () {
                 var spotJSON = ($('#camp_' + spot).val());
                 spotJSON = JSON.parse(spotJSON.replace(/'/g, '"'));
 
-                if(($(select.input).val() > parseInt(spotJSON.free_beds, 10)) && (spotJSON != undefined))
+                if(($(select.input).val() != parseInt(spotJSON.free_beds, 10)) && (spotJSON != undefined))
                 {
                     $(multiple.dropdownOptions.children[elem]).hide();
                 }

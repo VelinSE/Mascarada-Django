@@ -9,7 +9,7 @@ $(document).ready(function() {
      img.onclick = function () {
          modal.style.display = "block";
          modalImg.src = this.src;
-         captionText.innerHTML = this.alt;
+         $('body').css('overflow', 'hidden');
      }
 
      // Get the <span> element that closes the modal
@@ -22,5 +22,6 @@ $(document).ready(function() {
 
     $('#myModal').on('click', function() {
         $(this).hide();
+        $('body').css('overflow', 'auto');
     })
 })

@@ -56,18 +56,26 @@ REUSABLE COMPONENTS
         padding: 0;
     }
 
+    .navbar .container {
+        width: 100%;
+    }
+
     .navbar-brand  {
-        font-size: 180%;
-        font-family: 'Exo 2', sans-serif;
-        font-weight: bolder;
+        font-size: 250%;
+        font-family: 'Iceland', sans-serif;
+        font-weight: 400;
         vertical-align: middle;
         text-decoration: none;
         color: #ffffff;
     }
 
+    .navbar-nav {
+        width: 100%;
+    }
+
     .navbar-nav li {
         text-decoration: none;
-        font-size: 125%;
+        font-size: 135%;
     }
 
         .navbar-nav li a {
@@ -86,6 +94,7 @@ REUSABLE COMPONENTS
             .navbar .logo img {
                 margin-right: 0.5em;
             }
+
 
 .main-section {
     background-color: rgb(128, 201, 255, 0.1);
@@ -126,10 +135,6 @@ REUSABLE COMPONENTS
     font-family: 'Iceland', sans-serif;
     font-size: 340%; 
 }
-
-    .navbar .iceland-font {
-        font-size: 200%;
-    }
 
 /* --- Footer --- */
 
@@ -224,6 +229,20 @@ REUSABLE COMPONENTS
     -moz-box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);
     box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);*/
 }
+
+    .home-header .profile{
+        color: #ffffff;
+        font-size: 180%;
+        font-weight: 400;
+        position: absolute;
+        top: 3%;
+        right: 3%;
+    }
+
+    .home-header .btn-outline-info {
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+    }
 
     
 
@@ -463,7 +482,7 @@ REUSABLE COMPONENTS
 /* Add Animation - Zoom in the Modal */
 .modal-content, #caption {
     animation-name: zoom;
-    animation-duration: 0.6s;
+    animation-duration: 0.3s;
 }
 
 @keyframes zoom {
@@ -520,15 +539,26 @@ REUSABLE COMPONENTS
   .form-elegant .btn:hover {
     -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
     box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+
+    .form-elegant .iceland-font {
+        font-size: 120%;
+    }
+
     
 .login{
     padding-top: 3%;
     margin: auto;
-}                  
+}        
 
 .buy-ticket {
     width: 300px;
     height: 150px;
     transform: rotate(-7deg);
 }
+
+.border-left {
+    border-left: 2px solid #888888 ;
+}
+
+
 

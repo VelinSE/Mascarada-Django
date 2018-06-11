@@ -8,60 +8,62 @@
 
 
 {% block body %}
-<section class="form-elegant">
+<section class="form-elegant main-section">
 
     <!--Form without header-->
     <div class="row-ml-5 mt-5">
         <div class="col-sm-6 login">
-            <div class="card">
-
-                <div class="card-body mx-4">
-
-                    <!--Header-->
-                    <div class="text-center">
-                        <h3 class="dark-grey-text mb-5">
-                            <strong>Sign in</strong>
-                        </h3>
-                    </div>
-
-                    <!--Body-->
-                    <form method="post" class="ml-5">
-                        {% csrf_token %}
-                       
-                        {% for field in form %}
-                            <div class='md-form'>
-                                {{ field }}
-                                {% if field.value is none %}
-                                    <label for="{{ field.id_for_label }}"> {{ field.label }} </label>
-                                {% else %}
-                                <label for="{{ field.id_for_label }}" class="active"> {{ field.label }} </label>
-                                {% endif %}
+            <div class=" row">
+                <div class="col-sm-6">
+                    <div class="card-body d-flex flex-column">
+                            <!--Header-->
+                            <div class="text-right">
+                                <h3 class="dark-grey-text mb-5">
+                                    <strong class="iceland-font">Sign in</strong>
+                                </h3>
                             </div>
-                        {% endfor %}
+        
+                            <!--Body-->
+                            <form method="post" class="">
+                                {% csrf_token %}
+                               
+                                {% for field in form %}
+                                    <div class='md-form'>
+                                        {{ field }}
+                                        {% if field.value is none %}
+                                            <label for="{{ field.id_for_label }}"> {{ field.label }} </label>
+                                        {% else %}
+                                        <label for="{{ field.id_for_label }}" class="active"> {{ field.label }} </label>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                                
                         
-                
-                        <p class="font-small blue-text d-flex justify-content-end">Forgot
-                            <a href="/accounts/reset-password/" class="blue-text ml-1"> Password?</a>
-                        </p>
-
-                    <div class="text-center mb-3">
-                        <button type="submit" class="btn brown lighten-2 btn-block btn-rounded z-depth-1a">Sign in</button>
+                                <p class="font-small blue-text d-flex justify-content-end">Forgot
+                                    <a href="/accounts/reset-password/" class="blue-text ml-1"> Password?</a>
+                                </p>
+        
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn red lighten-2 btn-rounded z-depth-1a">Sign in</button>
+                            </div>
+                            </form>
                     </div>
                 </div>
-                </form>
-
-                <!--Footer-->
-                <div class="modal-footer mx-5 p-4 mb-1 d-flex justify-content-around">
-                    <span class="grey-text mb-3">No tickets yet?</span> 
-                    <a href="{% url 'tickets' %}" class="blue-text ml-1"><img class="buy-ticket" src="{% static 'img/buy-ticket-red.svg' %}" alt="ticket image"> </a>
+                <div class="col-sm-6 border-left">
+                        <div class="p-4 mb-1 d-flex">
+                                <span class="grey-text">No tickets yet?</span> 
+                                <!--<a href="{% url 'tickets' %}" class="blue-text ml-1"><img class="buy-ticket" src="{% static 'img/buy-ticket-red.svg' %}" alt="ticket image"></a>--> 
+                            </div>
                 </div>
-
             </div>
+                
+                <!--Footer-->
+                
+
+
 
         </div>
 
     </div>
-
-
 </section>
 {% endblock %}

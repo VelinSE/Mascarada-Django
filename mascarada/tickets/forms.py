@@ -32,6 +32,9 @@ class VisitorCreationForm(ModelForm):
 
         visitor.user = user
         visitor.event_money = 0
+        visitor.rfid_code = None
+
+        print(Visitor.objects.all().values('rfid_code'))
 
         if commit:
             visitor.save()

@@ -1,13 +1,47 @@
-{% extends 'base.html' %}
+{% extends 'login.html' %} 
+
+{% load static %}
 
 {% block body %}
+<section class="main-section mt-5">
+    <div class="card-group flex-column">
+        <div class="card">
+            <div class="card-header lime darken-4 white-text">Your tickets</div>
+        </div>
+        {% for ticket in tickets %}
+            <div class="card">
+                <div class="card-header"></div>
+                <div class="card-body d-flex justify-content-between">
+                    <img class="ticket-logo ml-5 mb-4" src="{% static 'img/logo-black.svg' %}" alt="">
+                    
+                    <div class="d-flex flex-column">
+                        <h4 class="card-title iceland-font mt-0 mb-2 mx-auto">MASCARADA</h4>
+                        <div class="d-flex justify-content-around">
+                            <div class="card-text m-0">Name: <p class="m-0">{{ ticket.first_name }} {{ ticket.last_name }}</p> </div>
+                            <div class="card-text m-0">Email: <p class="m-0">{{ ticket.email }}</p> </div>
+                            <div class="card-text m-0">Date of birth: <p class="m-0">{{ ticket.birth_date }}</p> </div>
+                        </div>
+                    </div>
+                    
+                    <a class="btn indigo lighten-2 align-self-start">Resend to email</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
 <div class="container">
 
     <div class="center-align">
-        <h4>Welcome {{ request.user.first_name }}</h4>
+        <h4>Welcome {{ request.user.first_name }} </h4>
     </div>
-    <p><h5 class="center-align">First name: {{user.first_name}}</h5></p>
-    <p><h5 class="center-align">Last name: {{user.last_name}}</h5></p>
-    <p><h5 class="center-align">Email: {{user.email}}</h5></p>
+    <p>
+        <h5 class="center-align">First name: {{user.first_name}}</h5>
+    </p>
+    <p>
+        <h5 class="center-align">Last name: {{user.last_name}}</h5>
+    </p>
+    <p>
+        <h5 class="center-align">Email: {{user.email}}</h5>
+    </p>
 </div>
 {% endblock %}

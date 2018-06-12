@@ -15,6 +15,8 @@ html {
 
 body {
     min-height: 100vh;
+    font-size: 1em !important;
+    font-family: 'Exo 2', sans-serif;
 }
 
 img {
@@ -94,6 +96,8 @@ REUSABLE COMPONENTS
             .navbar .logo img {
                 margin-right: 0.5em;
             }
+
+            
 
 
 .main-section {
@@ -231,12 +235,11 @@ REUSABLE COMPONENTS
 }
 
     .home-header .profile{
-        color: #ffffff;
         font-size: 180%;
         font-weight: 400;
         position: absolute;
-        top: 3%;
-        right: 3%;
+        top: 4%;
+        right: 0.5%;
     }
 
     .home-header .btn-outline-info {
@@ -560,5 +563,19 @@ REUSABLE COMPONENTS
     border-left: 2px solid #888888 ;
 }
 
+/* ---------------
+    PROFILE
+-----------------*/
 
+.ticket-logo {
+    width: 250px;
+    height: auto;
+}
 
+.card-group .card:not(:last-child) .card-footer {
+    display: none;
+}
+
+    .card-body .d-flex:nth-child(2) {
+        width: 100%
+    }

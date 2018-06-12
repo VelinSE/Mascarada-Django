@@ -78,13 +78,23 @@
                                     <a class="nav-link waves-effect" href="{% url 'camping' %}">CAMPING</a>
                                 </li>
                                 {% if not request.user.is_authenticated %}
-                                    <li class="nav-item waves-effect">
+                                    <li class="nav-item ml-auto waves-effect">
                                         <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
                                     </li>
                                 {% endif %}
                                 {% if request.user.is_authenticated %}
-                                    <li class="nav-item ml-auto waves-effect">
+                                    <!--<li class="nav-item ml-auto waves-effect">
                                         <a href="#" class="nav-link"><i class="fas fa-user-circle"></i> My profile</a>
+                                    </li>-->
+                                    <li class="nav-item dropdown ml-auto">
+                                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-user-circle"></i> My profile
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item waves-effect" href="{% url 'profile' %}">Profile</a>
+                                            <a class="dropdown-item waves-effect" href="{% url 'my-tickets' %}">My tickets</a>
+                                            <a class="dropdown-item waves-effect" href="{% url 'logout' %}">Log out</a>
+                                        </div>
                                     </li>
                                 {% endif%}
                             </ul>

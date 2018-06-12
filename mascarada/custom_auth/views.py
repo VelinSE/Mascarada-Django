@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from custom_auth.models import CustomUser
 from custom_auth.forms import RegistrationForm
 
-@login_required
+from tickets.models import Visitor
+
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -23,7 +24,9 @@ def register(request):
 @login_required
 def profile(request):
     user = request.user
-    args = { 'user' : user}
+    tickets = Visitor.objects.filter(user = request.user)
+    args = { 'user' : user, 'tickets': tickets}
+
     return render(request, 'profile.html', args)
 
 def logout_user(request):

@@ -5,7 +5,17 @@
 {% block header %}
             <header class="home-header z-depth-3">
                     {% if request.user.is_authenticated %}
-                        <a href="#" class=" btn-outline-info profile waves-effect px-4 py-2"><i class="fas fa-user-circle"></i></a>
+                        
+                        <li class="nav-item dropdown ml-auto">
+                                <a class="nav-link dropdown-toggle profile waves-effect px-3 py-1 text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item waves-effect" href="{% url 'profile' %}">Profile</a>
+                                    <a class="dropdown-item waves-effect" href="{% url 'my-tickets' %}">My tickets</a>
+                                    <a class="dropdown-item waves-effect" href="{% url 'logout' %}">Log out</a>
+                                </div>
+                            </li>
                     {% endif%}
                     <div class="logo-container">
                         <img class="logo" src="{% static 'img/logo-white.svg' %}" alt="">

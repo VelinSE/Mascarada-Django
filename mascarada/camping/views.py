@@ -30,6 +30,7 @@ def seed_campings(request):
 
     return redirect('/camping/reserve/')
 
+@login_required
 def camping(request):
     campings = Camping.objects.all()
     camp_options = campings.values()

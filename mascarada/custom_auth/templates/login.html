@@ -3,7 +3,7 @@
 
 {% block header %}
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark indigo darken-3 fixed-top scrolling-navbar" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark deep-purple darken-1 fixed-top scrolling-navbar" id="main-nav">
 {% endblock %}
 
 
@@ -50,9 +50,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6 border-left">
-                        <div class="p-4 mb-1 d-flex">
-                                <span class="grey-text">No tickets yet?</span> 
+                        <div class="p-4 mb-1 d-flex flex-column h-50">
+                                <span class="grey-text">No account yet?</span>
                                 <!--<a href="{% url 'tickets' %}" class="blue-text ml-1"><img class="buy-ticket" src="{% static 'img/buy-ticket-red.svg' %}" alt="ticket image"></a>--> 
+                                <a href="{% url 'register' %}" class="btn btn-amber register-button my-auto">Register here</a>
                             </div>
                 </div>
             </div>

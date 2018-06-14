@@ -41,7 +41,7 @@ def camping(request):
 
         if form.is_valid():
             if form.save():
-                return redirect('/tickets/my-tickets/')
+                return redirect('/accounts/profile/#camps')
 
         return render(request, 'camping.html', { 'form' : form , 'campings' : campings, })
     else:

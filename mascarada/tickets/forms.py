@@ -18,9 +18,11 @@ class VisitorCreationForm(ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control dropdown-toggle', 'data-toggle': 'dropdown'}),
+            'email': forms.TextInput(attrs={'class': ''}),
             'birth_date': forms.DateInput(attrs={'class': 'datepicker'}),
         }
+
+        
 
     def save(self, user, commit=True):
         visitor = super(VisitorCreationForm, self).save(commit=False)

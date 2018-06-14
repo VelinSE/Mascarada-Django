@@ -1,8 +1,28 @@
 <html>
-    <head>
-    </head>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
     <body>
         {% load qr_code %}
-        {% qr_from_text text size="m" image_format="png" error_correction="L" %}
-    </body>
+            <div>
+                    <div>
+                        <h4>MASCARADA</h4>
+                        <div>
+                            <div>Name: <p>{{ visitor.first_name }} {{ visitor.last_name }}</p> </div>
+                            <div>Email: <p>{{ visitor.email }}</p> </div>
+                            <div>Date of birth: <p>{{ visitor.birth_date }}</p> </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>50 EUR</h4>
+                            <div class="qr-code">{% qr_from_text text size="m" image_format="png" error_correction="L" %}</div>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+</body>
 </html>

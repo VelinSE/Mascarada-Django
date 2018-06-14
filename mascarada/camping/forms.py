@@ -9,9 +9,9 @@ import ast
 
 TENT_OPTIONS = (
     ('0', 'None'),
-    ('2', '2 Person'),
-    ('4', '4 Person'),
-    ('6', '6 Person'),
+    ('2', '2 Person, 15€'),
+    ('4', '4 Person, 30€'),
+    ('6', '6 Person, 45€'),
 )
 
 EMAIL_OPTIONS = ()
@@ -22,11 +22,13 @@ class ReservationForm(forms.Form):
     def __init__(self, email_options=None, camp_options=None, bed_options=None, *args, **kwargs):
         super(ReservationForm, self).__init__(*args, **kwargs)
         self.fields['visitor_email'] = forms.MultipleChoiceField(
-            widget=widgets.SelectMultiple, choices=ReservationForm.set_mail_choises(email_options), label='Visitor')
+            widget=widgets.SelectMultiple, choices=ReservationForm.set_mail_choises(email_options), label='Visitors')
         self.fields['beds_taken'] = forms.ChoiceField(
-            widget=widgets.Select, choices=ReservationForm.set_bed_choices(bed_options))
+            widget=widgets.Select, choices=ReservationForm.set_bed_choices(bed_options), label='Number of people')
         self.fields['camp_no'] = forms.ChoiceField(
-            widget=widgets.Select, choices=ReservationForm.set_camp_choices(camp_options))
+            widget=widgets.Select, choices=ReservationForm.set_camp_choices(camp_options), label='Camping spot')
+        self.fields['tent_size'] = forms.ChoiceField(
+        widget=widgets.Select, choices=TENT_OPTIONS, label='Tent')
 
         self.fields['beds_taken'].widget.attrs = {'id': 'single'}
         self.fields['beds_taken'].widget.template_name = 'select_template.html'
@@ -35,13 +37,10 @@ class ReservationForm(forms.Form):
         self.fields['camp_no'].widget.template_name = 'multiselect_template.html'
         self.fields['camp_no'].widget.option_template_name = 'multiselect_option_template.html'
 
-    tent_size = forms.ChoiceField(
-        widget=widgets.Select, choices=TENT_OPTIONS, label='Tent')
-
     def save(self, commit=True):
         isValid = True
 
-        camp_entry_cleaned = ast.literal_eval(self.cleaned_data['camp_no'][0])
+        camp_entry_cleaned = ast.literal_eval(self.cleaned_data['camp_no'])
         camping = Camping.objects.get(camping_number=camp_entry_cleaned['camping_number'])
         spot = Spot(beds_taken=int(self.cleaned_data['beds_taken']))
         spot.camping = camping

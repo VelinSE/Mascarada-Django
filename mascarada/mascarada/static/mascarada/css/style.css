@@ -105,8 +105,8 @@ REUSABLE COMPONENTS
     background-size: cover;
     background-attachment: fixed;
     padding: 2em;
-    height: 100%;
     position: relative;
+    min-height: 100vh;
 }
 
 .pattern-wavy {
@@ -212,6 +212,18 @@ REUSABLE COMPONENTS
 .copyright {
     color: #cccccc;
     font-size: 100%;
+}
+
+.purple-gradient {
+    background: linear-gradient(40deg,#ff6ec4,#7873f5) !important;
+}
+
+.purple-gradient-reverse {
+    background: linear-gradient(40deg,#7873f5, #ff6ec4) !important;
+}
+
+.font-size-150 {
+    font-size: 150%;
 }
 
 /* ---------------
@@ -518,6 +530,10 @@ REUSABLE COMPONENTS
     }
 }
 
+.ticket {
+    height: 300px;
+}
+
 /* ---------------
     ARITST
 -----------------*/
@@ -563,6 +579,15 @@ REUSABLE COMPONENTS
     border-left: 2px solid #888888 ;
 }
 
+.register-button {
+    font-size: 150%;
+    font-weight: 300;
+}
+
+.register-form {
+    font-size: 130%;
+}
+
 /* ---------------
     PROFILE
 -----------------*/
@@ -576,6 +601,11 @@ REUSABLE COMPONENTS
     display: none;
 }
 
-    .card-body .d-flex:nth-child(2) {
-        width: 100%
-    }
+.profile-icon {
+    font-size: 3em;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+}

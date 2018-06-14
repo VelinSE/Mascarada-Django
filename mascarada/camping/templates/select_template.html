@@ -1,5 +1,5 @@
 <select name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
-    <option value="" disabled selected>Choose number of beds</option>
+    <option value="" disabled selected>Choose number of people</option>
     {% for group_name, group_choices, group_index in widget.optgroups %}
         {% if group_name %}
             <optgroup label="{{ group_name }}">
@@ -16,5 +16,3 @@
     {% endfor %}
     
 </select>
-
-<label>Number of Beds</label>

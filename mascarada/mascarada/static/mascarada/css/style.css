@@ -15,6 +15,8 @@ html {
 
 body {
     min-height: 100vh;
+    font-size: 1em !important;
+    font-family: 'Exo 2', sans-serif;
 }
 
 img {
@@ -33,7 +35,7 @@ REUSABLE COMPONENTS
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-template-rows: 300px;
     grid-gap: 1em;
 }
@@ -56,18 +58,26 @@ REUSABLE COMPONENTS
         padding: 0;
     }
 
+    .navbar .container {
+        width: 100%;
+    }
+
     .navbar-brand  {
-        font-size: 180%;
-        font-family: 'Exo 2', sans-serif;
-        font-weight: bolder;
+        font-size: 250%;
+        font-family: 'Iceland', sans-serif;
+        font-weight: 400;
         vertical-align: middle;
         text-decoration: none;
         color: #ffffff;
     }
 
+    .navbar-nav {
+        width: 100%;
+    }
+
     .navbar-nav li {
         text-decoration: none;
-        font-size: 125%;
+        font-size: 135%;
     }
 
         .navbar-nav li a {
@@ -87,13 +97,16 @@ REUSABLE COMPONENTS
                 margin-right: 0.5em;
             }
 
+            
+
+
 .main-section {
     background-color: rgb(128, 201, 255, 0.1);
     background-size: cover;
     background-attachment: fixed;
     padding: 2em;
-    height: 100%;
     position: relative;
+    min-height: 100vh;
 }
 
 .pattern-wavy {
@@ -122,6 +135,10 @@ REUSABLE COMPONENTS
     width: 100%;
 }
 
+.iceland-font {
+    font-family: 'Iceland', sans-serif;
+    font-size: 340%; 
+}
 
 /* --- Footer --- */
 
@@ -197,6 +214,18 @@ REUSABLE COMPONENTS
     font-size: 100%;
 }
 
+.purple-gradient {
+    background: linear-gradient(40deg,#ff6ec4,#7873f5) !important;
+}
+
+.purple-gradient-reverse {
+    background: linear-gradient(40deg,#7873f5, #ff6ec4) !important;
+}
+
+.font-size-150 {
+    font-size: 150%;
+}
+
 /* ---------------
     HOME
 -----------------*/
@@ -216,6 +245,19 @@ REUSABLE COMPONENTS
     -moz-box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);
     box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);*/
 }
+
+    .home-header .profile{
+        font-size: 180%;
+        font-weight: 400;
+        position: absolute;
+        top: 4%;
+        right: 0.5%;
+    }
+
+    .home-header .btn-outline-info {
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+    }
 
     
 
@@ -419,7 +461,7 @@ REUSABLE COMPONENTS
 #myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
-.modal {
+.my-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 9999; /* Sit on top */
@@ -433,7 +475,7 @@ REUSABLE COMPONENTS
 }
 
 /* Modal Content (Image) */
-.modal-content {
+.my-modal .modal-content {
     margin: auto;
     display: block;
     width: 80%;
@@ -455,7 +497,7 @@ REUSABLE COMPONENTS
 /* Add Animation - Zoom in the Modal */
 .modal-content, #caption {
     animation-name: zoom;
-    animation-duration: 0.6s;
+    animation-duration: 0.3s;
 }
 
 @keyframes zoom {
@@ -488,6 +530,10 @@ REUSABLE COMPONENTS
     }
 }
 
+.ticket {
+    height: 300px;
+}
+
 /* ---------------
     ARITST
 -----------------*/
@@ -512,11 +558,16 @@ REUSABLE COMPONENTS
   .form-elegant .btn:hover {
     -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
     box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+
+    .form-elegant .iceland-font {
+        font-size: 120%;
+    }
+
     
 .login{
     padding-top: 3%;
     margin: auto;
-}                  
+}        
 
 .buy-ticket {
     width: 300px;
@@ -524,3 +575,37 @@ REUSABLE COMPONENTS
     transform: rotate(-7deg);
 }
 
+.border-left {
+    border-left: 2px solid #888888 ;
+}
+
+.register-button {
+    font-size: 150%;
+    font-weight: 300;
+}
+
+.register-form {
+    font-size: 130%;
+}
+
+/* ---------------
+    PROFILE
+-----------------*/
+
+.ticket-logo {
+    width: 250px;
+    height: auto;
+}
+
+.card-group .card:not(:last-child) .card-footer {
+    display: none;
+}
+
+.profile-icon {
+    font-size: 3em;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+}

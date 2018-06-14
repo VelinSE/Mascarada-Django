@@ -28,11 +28,12 @@ class EntryTicket(models.Model):
 @receiver(post_save, sender=Visitor)
 def createEntryTicket(sender, **kwargs):
     if kwargs.get('created', False):
-        ticket = EntryTicket.objects.create(visitor=kwargs['instance'])
+        visitor = kwargs['instance']
+        ticket = EntryTicket.objects.create(visitor=visitor)
         ticket.qr_code = generate_qr(20)
         ticket.save()
-        
-        args = { 'text' : ticket.qr_code }
+
+        args = { 'text' : ticket.qr_code, 'visitor' : visitor }
         pdf = render_to_pdf('purchase_email.html', args)
         response = HttpResponse(pdf, content_type='application/pdf')
 

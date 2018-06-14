@@ -4,7 +4,7 @@
 {% block header %}
 <header>
                     
-        <nav class="navbar navbar-expand-lg navbar-dark red lighten-3 p-0 fixed-top scrolling-navbar" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark orange lighten-3 p-0 fixed-top scrolling-navbar" id="main-nav">
 {% endblock %}
 
 {% block body %}
@@ -23,27 +23,33 @@
         <div class="image-container">
             <a href="#">
                 <div class="align-items-end justify-content-center overlay">
-                    <div class="z-depth-1">Armin Van Buuren</div>
+                    <div class="z-depth-1">Hardwell</div>
                 </div>
-                <img src="{% static 'img/armin-van-buuren.png' %}" alt="armin van buuren">
+                <img src="{% static 'img/hardwell.jpg' %}" alt="hardwell">
             </a>
         </div>
-
         <div class="image-container">
             <a href="#">
                 <div class="align-items-end justify-content-center overlay">
-                    <div class="z-depth-1">Hardwell</div>
+                    <div class="z-depth-1">Armin Van Buuren</div>
                 </div>
-                <img src="{% static 'img/hardwell.png' %}" alt="hardwell">
+                <img src="{% static 'img/Armin-van-Buuren.jpg' %}" alt="armin van buuren">
             </a>
-
         </div>
         <div class="image-container">
             <a href="#">
                 <div class="align-items-end justify-content-center overlay">
                     <div class="z-depth-1">Calvin Harris</div>
                 </div>
-                <img src="{% static 'img/150818-zimmerman-calvin-harris-tease_waufgj.jpg' %}" alt="calvin harris">
+                <img src="{% static 'img/calvin-harris.jpg' %}" alt="calvin harris">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="#">
+                <div class="align-items-end justify-content-center overlay">
+                    <div class="z-depth-1">Ummet Ozcan</div>
+                </div>
+                <img src="{% static 'img/ummet_ozcan.jpg' %}" alt="ummet ozcan">
             </a>
         </div>
         <div class="image-container">
@@ -53,16 +59,6 @@
                 </div>
                 <img src="{% static 'img/Marshmello.png' %}" alt="marshmello">
             </a>
-
-        </div>
-        <div class="image-container">
-            <a href="#">
-                <div class="align-items-end justify-content-center overlay">
-                    <div class="z-depth-1">Ummet Ozcan</div>
-                </div>
-                <img src="{% static 'img/ummet_ozcan.jpg' %}" alt="ummet ozcan">
-            </a>
-
         </div>
     </div>
 
@@ -70,7 +66,7 @@
 <footer class="footer d-flex flex-column justify-content-end">
         <div class="row links">
             <div class="col-sm-6 d-flex  justify-content-around">
-                <a href="tickets">Buy tickets</a>
+                <a href="{% url 'tickets' %}">Buy tickets</a>
             </div>
             <div class="col-sm-6 ">
                 <ul class="social-icons d-flex justify-content-center">

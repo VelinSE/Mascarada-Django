@@ -30,6 +30,7 @@ def seed_campings(request):
 
     return redirect('/camping/reserve/')
 
+@login_required
 def camping(request):
     campings = Camping.objects.all()
     camp_options = campings.values()
@@ -40,7 +41,7 @@ def camping(request):
 
         if form.is_valid():
             if form.save():
-                return redirect('/tickets/my-tickets/')
+                return redirect('/accounts/profile/#camps')
 
         return render(request, 'camping.html', { 'form' : form , 'campings' : campings, })
     else:

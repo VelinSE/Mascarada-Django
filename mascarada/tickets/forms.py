@@ -1,7 +1,9 @@
 from datetime import datetime
 from django import forms
 from django.forms import ModelForm
+from django.forms import widgets
 from tickets.models import Visitor
+
 
 class VisitorCreationForm(ModelForm):
     class Meta:
@@ -14,13 +16,15 @@ class VisitorCreationForm(ModelForm):
         )
 
         widgets = {
-            'first_name' : forms.TextInput(attrs={'class' : 'form-control'}),
-            'last_name' : forms.TextInput(attrs={'class' : 'form-control'}),
-            'email': forms.TextInput(attrs={'class' : 'form-control'}),
-            'birth_date' : forms.TextInput(attrs={'class' : 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': ''}),
+            'birth_date': forms.DateInput(attrs={'class': 'datepicker'}),
         }
 
-    def save(self, user, commit = True):
+        
+
+    def save(self, user, commit=True):
         visitor = super(VisitorCreationForm, self).save(commit=False)
 
         visitor.first_name = self.cleaned_data['first_name']
@@ -30,8 +34,11 @@ class VisitorCreationForm(ModelForm):
 
         visitor.user = user
         visitor.event_money = 0
+        visitor.rfid_code = None
+
+        print(Visitor.objects.all().values('rfid_code'))
 
         if commit:
             visitor.save()
-        
+
         return visitor

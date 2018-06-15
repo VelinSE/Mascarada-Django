@@ -657,3 +657,48 @@ REUSABLE COMPONENTS
     height: 200px;
 }
 
+@media screen and (max-width: 1120px) {
+    .row {
+        width: 100%;
+    }
+
+    .login {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .home-nav {
+        font-size: 105%;
+    }
+
+    .logo {
+        width: 80%;
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .home-nav .flex-container {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        width: 70%;
+        height: 50%;
+    }
+
+    .logo-container {
+        font-size: 250%;
+    }
+
+    .poster {
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .logo-container {
+        font-size: 50%;
+    }
+}

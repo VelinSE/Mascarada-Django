@@ -10,30 +10,7 @@
 {% block body %}
 
 <section class="main-section mt-5">
-    <div class="card-deck">
-        {% for artist in artists %}
-            <!-- Card -->
-            <div class="card w-25">
-
-                <!-- Card image -->
-                <img class="card-img-top" src="{% static artist.image_loaction %}" alt="Card image cap">
-                <!-- Card content -->
-                <div class="card-body">
-                    <!-- Title -->
-                    <h4 class="card-title">
-                        <a>Card title</a>
-                    </h4>
-                    <!-- Text -->
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <!-- Button -->
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        {% endfor %}
-        
-        <!-- Card -->
-    </div>
-    <!--<div class="image-grid  grid-container">
+    <div class="image-grid  grid-container">
         <div class="image-container">
             <a href="#">
                 <div class="align-items-end justify-content-center overlay ">
@@ -83,7 +60,8 @@
                 <img src="{% static 'img/Marshmello.png' %}" alt="marshmello">
             </a>
         </div>
-    </div>-->
+    </div>
 
 </section>
+<script src="{% static 'js/lineupController.js' %}"></script>
 {% endblock %}

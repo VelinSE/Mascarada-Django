@@ -24,4 +24,5 @@ $(document).ready(function() {
         $(this).hide();
         $('body').css('overflow', 'auto');
     })
+    
 })

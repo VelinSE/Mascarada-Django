@@ -6,16 +6,15 @@
             <header class="home-header z-depth-3">
                     {% if request.user.is_authenticated %}
                         
-                        <li class="nav-item dropdown ml-auto">
-                                <a class="nav-link dropdown-toggle profile waves-effect px-3 py-1 text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user-circle"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item waves-effect" href="{% url 'profile' %}">Profile</a>
-                                    <a class="dropdown-item waves-effect" href="{% url 'my-tickets' %}">My tickets</a>
-                                    <a class="dropdown-item waves-effect" href="{% url 'logout' %}">Log out</a>
-                                </div>
-                            </li>
+                        <div class="nav-item dropdown ml-auto">
+                            <a class="nav-link dropdown-toggle profile waves-effect px-3 py-1 text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item waves-effect" href="{% url 'profile' %}">Profile</a>
+                                <a class="dropdown-item waves-effect" href="{% url 'logout' %}">Log out</a>
+                            </div>
+                        </div>
                     {% endif%}
                     <div class="logo-container">
                         <img class="logo" src="{% static 'img/logo-white.svg' %}" alt="">
@@ -25,18 +24,18 @@
                     <nav class="home-nav" id="home-nav">
                         <ul class="flex-container p-0 m-0 justify-content-center">
                             <li class="nav-item mr-4">
-                                <a class="nav-link" href="">HOME
-                                    <span class="sr-only">(current)</span>
+                                <a class="nav-link" href="{% url 'index' %}">HOME
                                 </a>
                             </li>
                             <li class="nav-item mr-4">
-                                <a class="nav-link" href="{% url 'lineup' %}">LINE UP</a>
-                            </li>
-                            <li class="nav-item mr-4">
                                 <a class="nav-link" href="{% url 'tickets' %}">TICKETS</a>
+                        
                             </li>
                             <li class="nav-item mr-4">
                                 <a class="nav-link" href="{% url 'camping' %}">CAMPING</a>
+                            </li>
+                            <li class="nav-item mr-4">
+                                <a class="nav-link" href="{% url 'lineup' %}">LINE UP</a>
                             </li>
                             {% if not request.user.is_authenticated %}
                                 <li class="nav-item">
@@ -47,8 +46,7 @@
                         </ul>
             
                     </nav>
-
-                    <nav class="navbar navbar-expand-lg navbar-dark red lighten-3 p-0 no-display fixed-top scrolling-navbar" id="main-nav">
+                    <nav class="navbar navbar-expand-lg navbar-dark red lighten-1 p-0 no-display fixed-top scrolling-navbar" id="main-nav">
                     
 {% endblock %}
 
@@ -61,8 +59,62 @@
             <img src="{% static 'img/lineup-poster.png' %}" alt="Mascarada line up poster">
         </div>
     </section>
-
     <div class="pattern-dot"></div>
+    <section class="p-5 z-depth-2">
+            <div class="image-grid  grid-container">
+                    <div class="image-container">
+                        <a href="artist">
+                            <div class="align-items-end justify-content-center overlay ">
+                                <div class="z-depth-1">Carl Cox</div>
+                            </div>
+                            <img src="{% static 'img/carl-cox.png' %}" alt="carl cox">
+                        </a>
+            
+                    </div>
+                    <div class="image-container">
+                        <a href="#">
+                            <div class="align-items-end justify-content-center overlay">
+                                <div class="z-depth-1">Hardwell</div>
+                            </div>
+                            <img src="{% static 'img/hardwell.jpg' %}" alt="hardwell">
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <a href="#">
+                            <div class="align-items-end justify-content-center overlay">
+                                <div class="z-depth-1">Armin Van Buuren</div>
+                            </div>
+                            <img src="{% static 'img/Armin-van-Buuren.jpg' %}" alt="armin van buuren">
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <a href="#">
+                            <div class="align-items-end justify-content-center overlay">
+                                <div class="z-depth-1">Calvin Harris</div>
+                            </div>
+                            <img src="{% static 'img/calvin-harris.jpg' %}" alt="calvin harris">
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <a href="#">
+                            <div class="align-items-end justify-content-center overlay">
+                                <div class="z-depth-1">Ummet Ozcan</div>
+                            </div>
+                            <img src="{% static 'img/ummet_ozcan.jpg' %}" alt="ummet ozcan">
+                        </a>
+                    </div>
+                    <div class="image-container">
+                        <a href="#">
+                            <div class="align-items-end justify-content-center overlay">
+                                <div class="z-depth-1">Marshmello</div>
+                            </div>
+                            <img src="{% static 'img/Marshmello.png' %}" alt="marshmello">
+                        </a>
+                    </div>
+                </div>
+    </section>
+
+    
 
     
 {% endblock %}

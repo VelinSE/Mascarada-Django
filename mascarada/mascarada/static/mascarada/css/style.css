@@ -71,10 +71,6 @@ REUSABLE COMPONENTS
         color: #ffffff;
     }
 
-    .navbar-nav {
-        width: 100%;
-    }
-
     .navbar-nav li {
         text-decoration: none;
         font-size: 135%;
@@ -215,11 +211,23 @@ REUSABLE COMPONENTS
 }
 
 .purple-gradient {
-    background: linear-gradient(40deg,#ff6ec4,#7873f5) !important;
+    background: linear-gradient(40deg,#ff6ec4,#7873f5, #ff6ec4) !important;
 }
 
 .purple-gradient-reverse {
     background: linear-gradient(40deg,#7873f5, #ff6ec4) !important;
+}
+
+.peach-gradient {
+    background: linear-gradient(40deg,#ffd86f,#fc6262) !important
+}
+
+.blue-gradient {
+    background: linear-gradient(40deg,#45cafc,#303f9f) !important;
+}
+
+.bordeaux-gradient {
+    background: linear-gradient(40deg,#C7819F, #7A3754) !important;
 }
 
 .font-size-150 {
@@ -307,7 +315,7 @@ REUSABLE COMPONENTS
     }
 
     .home-nav  ul li:nth-child(5):hover {
-        border-bottom: 3px solid #3056ff;
+        border-bottom: 3px solid #7873F5;
     }
                           
 
@@ -452,6 +460,11 @@ REUSABLE COMPONENTS
 .mdb-lightbox{
     padding-right: 3%;
 }
+
+.datepicker-date-display {
+    background-color: #303f9f;
+}
+
 #myImg {
     border-radius: 5px;
     cursor: pointer;
@@ -588,6 +601,40 @@ REUSABLE COMPONENTS
     font-size: 130%;
 }
 
+.help-text {
+    font-size: 80%;
+}
+
+.rounded {
+    border-radius:.25rem!important
+   }
+   .rounded-top {
+    border-top-left-radius:.25rem!important;
+    border-top-right-radius:.25rem!important
+   }
+   .rounded-right {
+    border-top-right-radius:.25rem!important;
+    border-bottom-right-radius:.25rem!important
+   }
+   .rounded-bottom {
+    border-bottom-right-radius:.25rem!important;
+    border-bottom-left-radius:.25rem!important
+   }
+   .rounded-left {
+    border-top-left-radius:.25rem!important;
+    border-bottom-left-radius:.25rem!important
+   }
+   .rounded-circle {
+    border-radius:50%!important
+   }
+   .rounded-0 {
+    border-radius:0!important
+   }
+
+   .btn-rounded {
+    -webkit-border-radius:10em;
+    border-radius:10em
+   }
 /* ---------------
     PROFILE
 -----------------*/
@@ -609,3 +656,4 @@ REUSABLE COMPONENTS
     width: 200px;
     height: 200px;
 }
+

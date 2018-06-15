@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    $(':text, :password, [type="email"]').on('ready', function () {
-        console.log("asdf");
-        if($(this).val() == "" && $(this).attr('id') != 'dob') {
+    $('input').blur();
+    $(':text, :password, [type="email"]').each(function() {
+        if ($(this).val() == "") {
             $("label[for='" + $(this).attr('id') + "']").removeClass('active');
         }
-    })
+    }) 
 
     $(':text, :password, [type="email"]').on('focus', function () {
         if ($(this).attr('id') != 'dob') {

@@ -28,20 +28,26 @@ def register(request):
 @login_required
 def profile(request):
     user = request.user
-    tickets = Visitor.objects.filter(user=request.user)
+    tickets = list(Visitor.objects.filter(user=request.user))
     campings = list()
 
-    for visitor in tickets:
-        reservations = Reservation.objects.filter(visitor=visitor)
+    if not tickets:
+        tickets = None
+    else:
+        for visitor in tickets:
+            reservations = Reservation.objects.filter(visitor=visitor)
 
-        for reservation in reservations:
-            res_visitor = reservation.visitor
-            tent = None
-            camp_spot = Spot.objects.get(id=reservation.spot_id)
-            if reservation.tent_id is not None:
-                tent = Tent.objects.get(id=reservation.tent_id)
-                
-            campings.append({'spot' : camp_spot, 'tent' : None, 'visitor': res_visitor})
+            for reservation in reservations:
+                res_visitor = reservation.visitor
+                tent = None
+                camp_spot = Spot.objects.get(id=reservation.spot_id)
+                if reservation.tent_id is not None:
+                    tent = Tent.objects.get(id=reservation.tent_id)
+                    
+                campings.append({'spot' : camp_spot, 'tent' : None, 'visitor': res_visitor})
+
+    if not campings:
+        campings = None
 
     args = {'user': user, 'tickets': tickets, 'campings' : campings}
 

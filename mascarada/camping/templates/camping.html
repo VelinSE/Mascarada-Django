@@ -4,47 +4,53 @@
 
 {% block header %}
 <header>
-        <nav class="navbar navbar-expand-lg navbar-dark blue lighten-2 fixed-top scrolling-navbar" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark green lighten-2 fixed-top scrolling-navbar" id="main-nav">
 {% endblock %}
 
 {% block body %}
 <section class="main-section mt-5">
-        <div class="row">
+        <div class="row p-5">
             <div class="col-sm-4">
-                <h4 class="iceland-font">Reserve camping spot!</h4>
-                <form class="" method="post">
-                    {% csrf_token %}
-                    {% for field in form%}
-                        <div class="input-field">
-                            {{ field }}
-                            {{ field.label_tag }}
-                        </div>
-                    {% endfor %}
-                    <div class="font-size-150">Price: <strong id="price"></strong></div>
-                    <br>
-                    <br>
-                    <div>*Camping costs 30€ per person</div>
-                    <div>*If you choose to reserve a tent you pay an additional deposit of 10€</div>
-                        {% if form.errors %} 
-                            {% for field in form %} 
-                                {% for error in field.errors %}
-                                    <div class="alert alert-danger">
-                                        <strong>{{ error|escape }}</strong>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="iceland-font">Reserve camping spot!</h4>
+                        <form class="" method="post">
+                                {% csrf_token %}
+                                {% for field in form%}
+                                    <div class="input-field">
+                                        {{ field }}
+                                        {{ field.label_tag }}
                                     </div>
-                                {% endfor %} 
-                            {% endfor %} 
-    
-                            {% for error in form.non_field_errors %}
-                                <div class="alert alert-danger">
-                                    <strong>{{ error|escape }}</strong>
+                                {% endfor %}
+                                <div class="font-size-150">Price: <strong id="price"></strong></div>
+                                <br>
+                                <br>
+                                <div>*Camping costs 30€ per person</div>
+                                <div>*If you choose to reserve a tent you pay an additional deposit of 10€</div>
+                                    {% if form.errors %} 
+                                        {% for field in form %} 
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %} 
+                                        {% endfor %} 
+                
+                                        {% for error in form.non_field_errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
+                                            </div>
+                                        {% endfor %} 
+                                    {% endif %}
+                                    
+                                <div class="center-align">
+                                    <button class="btn btn-rounded bordeaux-gradient" type="submit">Reserve</button>
                                 </div>
-                            {% endfor %} 
-                        {% endif %}
-                        
-                    <div class="center-align">
-                        <button class="btn blue lighten-1" type="submit">Reserve</button>
+                            </form>
                     </div>
-                </form>
+                </div>
+                
+                
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-7">

@@ -16,10 +16,10 @@ class VisitorCreationForm(ModelForm):
         )
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': ''}),
-            'birth_date': forms.DateInput(attrs={'class': 'datepicker'}),
+            'first_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'last_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'email': widgets.EmailInput(attrs={'class': 'form-control'}),
+            'birth_date': widgets.DateInput(attrs={'class': 'datepicker'}),
         }
 
         

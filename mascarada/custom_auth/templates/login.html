@@ -39,8 +39,8 @@
                                 {% endfor %}
                                 
                         
-                                <p class="font-small blue-text d-flex justify-content-end">Forgot
-                                    <a href="/accounts/reset-password/" class="blue-text ml-1"> Password?</a>
+                                <p class="font-small blue-text d-flex justify-content-end">
+                                    <a href="{% url 'reset_password' %}" class="blue-text ml-1">Forgot Password?</a>
                                 </p>
         
                             <div class="text-center mb-3">
@@ -49,22 +49,17 @@
                             </form>
                     </div>
                 </div>
-                <div class="col-sm-6 border-left">
-                        <div class="p-4 mb-1 d-flex flex-column h-50">
-                                <span class="grey-text">No account yet?</span>
-                                <!--<a href="{% url 'tickets' %}" class="blue-text ml-1"><img class="buy-ticket" src="{% static 'img/buy-ticket-red.svg' %}" alt="ticket image"></a>--> 
-                                <a href="{% url 'register' %}" class="btn btn-amber register-button my-auto">Register here</a>
+                <div class="col-sm-6 border-left d-flex">
+                        <div class="p-4 mb-1 d-flex flex-column h-75 align-self-center">
+                                <span class="grey-text font-weight-bold">No account yet?</span>
+                                <a href="{% url 'register' %}" class="btn btn-amber btn-lg my-auto">Register here</a>
                             </div>
                 </div>
             </div>
-                
-                <!--Footer-->
-                
-
-
 
         </div>
 
     </div>
+    <script src="{% static 'js/formController.js' %}"></script>
 </section>
 {% endblock %}

@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import widgets
 
 from custom_auth.models import CustomUser
 
@@ -14,6 +15,14 @@ class RegistrationForm(UserCreationForm):
             'password1',
             'password2',
         )
+
+        widgets = {
+            'first_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'last_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'email': widgets.TextInput(attrs={'class': 'form-control'}),
+            'password1': widgets.PasswordInput(attrs={'class': 'form-control'}),
+            'password1': widgets.PasswordInput(attrs={'class': 'form-control'}),
+        }
 
     def save(self, commit = True):
         user = super(RegistrationForm, self).save(commit=False)

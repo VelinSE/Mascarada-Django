@@ -3,7 +3,7 @@
 
 {% block header %}
 <header>
-        <nav class="navbar navbar-expand-lg navbar-dark green lighten-3 fixed-top scrolling-navbar" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark orange lighten-2 fixed-top scrolling-navbar" id="main-nav">
 {% endblock %}
 
 {% block body %}
@@ -11,41 +11,45 @@
     
         <div class="row ml-5 p-5">
             <div class="col-sm-5">
-                <h4 class="iceland-font">BUY TICKETS HERE!</h4>
-                <form method="post" class="ml-3">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        <div class='md-form'>
-                            {{ field }}
-                            {% if field.value is none %}
-                                <label for="{{ field.id_for_label }}"> {{ field.label }} </label>
-                            {% else %}
-                            <label for="{{ field.id_for_label }}" class="active"> {{ field.label }} </label>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    <div class="font-size-150">Price: <strong>50€</strong></div>
-                    
-                    {% if form.errors %}
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger">
-                                    <strong>{{ error|escape }}</strong>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="iceland-font">BUY TICKETS HERE!</h4>
+                        <form method="post" class="ml-3">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class='md-form'>
+                                    {{ field }}
+                                    {% if field.value is none %}
+                                        <label for="{{ field.id_for_label }}"> {{ field.label }} </label>
+                                    {% else %}
+                                    <label for="{{ field.id_for_label }}" class="active"> {{ field.label }} </label>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                            <div class="alert alert-danger">
-                                <strong>{{ error|escape }}</strong>
+                            <div class="font-size-150">Price: <strong>50€</strong></div>
+                            
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        
+                    
+                            <div class="center-align">
+                                <button class="btn btn-rounded blue-gradient" type="submit">Purchase</button>
                             </div>
-                        {% endfor %}
-                    {% endif %}
-                
-            
-                    <div class="center-align">
-                        <button class="btn green lighten-3" type="submit">Purchase</button>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
             
             <div class="tickets-illustration col-sm-6">

@@ -1,9 +1,13 @@
-from tickets.models import Visitor
+from tickets.models import Visitor, EntryTicket
 from tickets.forms import VisitorCreationForm
 from custom_auth.models import CustomUser
+from tickets.utils import render_to_pdf
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse, HttpResponse
+from django.core.mail import EmailMessage
 
 @login_required
 def buy_tickets(request):
@@ -47,4 +51,16 @@ def tickets(request):
         args = {'form' : form }
         return render(request, 'tickets.html', args)
 
+@csrf_exempt
+def resend_qr(request):
+    visitor = Visitor.objects.get(id=int(request.POST.get('visitorId')))
+    ticket = EntryTicket.objects.get(visitor_id=visitor.id)
+    
+    args = { 'text' : ticket.qr_code, 'visitor' : visitor }
+    pdf = render_to_pdf('purchase_email.html', args)
+    response = HttpResponse(pdf, content_type='application/pdf')
 
+    msg = EmailMessage('Mascarada', 'Welcome to mascarada!', to=[visitor.email])
+    msg.attach('ticket.pdf', response.content , 'application/pdf')
+    msg.send()
+    return JsonResponse({ 'success' : True })

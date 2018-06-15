@@ -18,6 +18,7 @@ class Visitor(models.Model):
     birth_date = models.DateField()
     event_money = models.DecimalField(decimal_places=2, max_digits=10)
     user = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
+    checked_in = models.NullBooleanField()
 
 class EntryTicket(models.Model):
     qr_code = models.CharField(max_length=50)

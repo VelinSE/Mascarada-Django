@@ -1,9 +1,11 @@
 from camping.models import Camping, Spot, Tent, Reservation
 from tickets.models import Visitor
+from tickets.utils import render_to_pdf
 
 from django import forms
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.forms import widgets
+from django.core.mail import EmailMessage
 
 import ast
 
@@ -14,7 +16,7 @@ TENT_OPTIONS = (
     ('6', '6 Person, 45€'),
 )
 
-EMAIL_OPTIONS = ()
+EMAIL_MESSAGE = """A camping reservation has been purchased for this email. You will be able to enter the camping site using your rfid. The camping number is %d and the reservation is for %d bed/s. """
 
 
 class ReservationForm(forms.Form):
@@ -43,31 +45,41 @@ class ReservationForm(forms.Form):
         camp_entry_cleaned = ast.literal_eval(self.cleaned_data['camp_no'])
         camping = Camping.objects.get(camping_number=camp_entry_cleaned['camping_number'])
         spot = Spot(beds_taken=int(self.cleaned_data['beds_taken']))
+
         spot.camping = camping
         if camping.free_beds < spot.beds_taken:
             isValid = False
             self.add_error('beds_taken', "There are not %s free beds in this camping" % spot.beds_taken)
         else:
             camping.free_beds -= spot.beds_taken
+
         tent_size = self.cleaned_data['tent_size']
         tent = None
         if tent_size != '0':
            tent = Tent(size=int(tent_size))
 
+        if isValid:
+            if tent is not None:
+                message_content = (EMAIL_MESSAGE % (camping.camping_number, spot.beds_taken)) + ("""The reservation includes a %s-person tent.""" % tent_size)
+                tent.save()
+            else:
+                message_content = EMAIL_MESSAGE % (camping.camping_number, spot.beds_taken)
+            camping.save()
+            spot.save()
+        import ipdb; ipdb.set_trace()
+        
         for visitor in self.cleaned_data['visitor_email']:
-            visitor_id = ast.literal_eval(visitor)
-
-            if isValid:
-                if tent is not None:
-                    tent.save()
-                camping.save()
-                spot.save()
+            visitor_id, visitor_email = visitor.split()
+            visitor_id = int(visitor_id)
 
             reservation = Reservation()
             reservation.spot = spot
             reservation.tent = tent
             reservation.visitor_id = int(visitor_id)
             reservation.save()
+             
+            msg = EmailMessage('Mascarada', message_content, to=[visitor_email])
+            msg.send()
 
         return reservation
 
@@ -75,7 +87,7 @@ class ReservationForm(forms.Form):
     def set_mail_choises(visitors):
         pairs = ()
         for v in visitors:
-            single_pair = ((str(v.id), v.email),)
+            single_pair = ((str(v.id) + " " + v.email, v.email),)
             pairs += single_pair
         return pairs
 

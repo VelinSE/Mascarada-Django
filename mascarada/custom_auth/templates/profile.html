@@ -51,6 +51,10 @@
                                     <a class="btn amber darken-2 text-white font-weight-bold">Send to email</a>
                                 </div>-->
                             </div>
+                            
+                            <div class="align-self-start">
+                                <button class="btn amber darken-2 text-white font-weight-bold ticket-resend" id="{{ticket.id}}">Send to email</button>
+                            </div>
                             <div class="card-footer border-top-dark white"></div>
                         </div>
                     {% endfor %}
@@ -118,4 +122,5 @@
 </section>
 
 <script src="{% static 'js/profileTabsController.js' %}"></script>
+<script src="{% static 'js/ticketResend.js' %}"></script>
 {% endblock %}

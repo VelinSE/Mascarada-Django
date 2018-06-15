@@ -28,14 +28,14 @@ class Hold(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.PROTECT)
     item = models.ForeignKey(Item, on_delete=models.PROTECT)
 
+class Purchase(models.Model):
+    time = models.DateTimeField()
+    visitor = models.ForeignKey(Visitor, on_delete=models.PROTECT)
+
 class Order(models.Model):
     quantity = models.IntegerField()
     hold = models.ForeignKey(Hold, on_delete=models.PROTECT)
-
-class Purchase(models.Model):
-    time = models.DateTimeField()
-    order = models.ForeignKey(Order, on_delete=models.PROTECT)
-    visitor = models.ForeignKey(Visitor, on_delete=models.PROTECT)
+    purchase = models.ForeignKey(Purchase, on_delete=models.PROTECT)
 
 class RequestedItem(models.Model):
     description = models.CharField(max_length=50)

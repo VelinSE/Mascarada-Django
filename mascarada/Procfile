@@ -1,1 +1,1 @@
-web: python manage.py reunserver
+web: gunicorn mascarada.wsgi:application

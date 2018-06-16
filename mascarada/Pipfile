@@ -4,8 +4,25 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+decorator = "==4.3.0"
+django-qr-code = "==1.0.0"
+"httplib2" = "==0.11.3"
+ipdb = "==0.11"
+ipython = "==6.3.1"
+olefile = "==0.45.1"
+pexpect = "==4.5.0"
+ptyprocess = "==0.5.2"
+pytz = "==2018.4"
 qrcode = "==6.0"
-gunicorn = "*"
+simplegeneric = "==0.8.1"
+six = "==1.11.0"
+traitlets = "==4.3.2"
+wcwidth = "==0.1.7"
+Django = "==2.0.5"
+ipython_genutils = "==0.2.0"
+"Jinja2" = "==2.10"
+prompt_toolkit = "==1.0.15"
+Pygments = "==2.2.0"
 
 [dev-packages]
 

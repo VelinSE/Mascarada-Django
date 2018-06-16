@@ -19,11 +19,13 @@ simplegeneric = "==0.8.1"
 six = "==1.11.0"
 traitlets = "==4.3.2"
 wcwidth = "==0.1.7"
+"xhtml2pdf" = "==0.2.2"
 Django = "==2.0.5"
 ipython_genutils = "==0.2.0"
 "Jinja2" = "==2.10"
 prompt_toolkit = "==1.0.15"
 Pygments = "==2.2.0"
+"PyPDF2" = "==1.26.0"
 
 [dev-packages]
 

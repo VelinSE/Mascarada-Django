@@ -140,6 +140,8 @@ USE_L10N = True
 USE_TZ = True
 
 ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1',
     'quiet-lowlands-96728.herokuapp.com'
 ]
 

@@ -30,7 +30,7 @@ $(document).ready(function () {
     })
 
     $('select').on('change', function() {
-        if($(single.input).val() != undefined)
+        if($(single.input).val() != undefined && $(this)[0].id != 'id_visitor_email')
         {
             if($('#id_tent_size').val() == 0)
             {

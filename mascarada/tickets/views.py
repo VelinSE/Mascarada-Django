@@ -36,7 +36,7 @@ def tickets(request):
         form = VisitorCreationForm(request.POST)
         if form.is_valid():
             visitor = form.save(request.user)
-            return redirect('/accounts/profile/#tickets')   
+            return redirect('/tickets/success')   
         else:
             args = {'form' : form }
             return render(request, 'tickets.html', args)                 
@@ -50,6 +50,10 @@ def tickets(request):
         form = VisitorCreationForm(initial=initial)
         args = {'form' : form }
         return render(request, 'tickets.html', args)
+
+@login_required
+def success(request):
+    return render(request, 'success_tickets.html')
 
 @csrf_exempt
 def resend_qr(request):

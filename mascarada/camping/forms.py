@@ -66,7 +66,6 @@ class ReservationForm(forms.Form):
                 message_content = EMAIL_MESSAGE % (camping.camping_number, spot.beds_taken)
             camping.save()
             spot.save()
-        import ipdb; ipdb.set_trace()
         
         for visitor in self.cleaned_data['visitor_email']:
             visitor_id, visitor_email = visitor.split()

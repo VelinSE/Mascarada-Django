@@ -41,7 +41,7 @@ def camping(request):
 
         if form.is_valid():
             if form.save():
-                return redirect('/accounts/profile/#camps')
+                return redirect('/camping/success')
 
         return render(request, 'camping.html', { 'form' : form , 'campings' : campings, })
     else:
@@ -49,5 +49,9 @@ def camping(request):
         args = { 'form' : form , 'campings' : campings, }
 
         return render(request, 'camping.html', args)
+
+@login_required
+def success(request):
+    return render(request, 'success_camping.html')
 
     

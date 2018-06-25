@@ -635,6 +635,7 @@ REUSABLE COMPONENTS
     -webkit-border-radius:10em;
     border-radius:10em
    }
+
 /* ---------------
     PROFILE
 -----------------*/
@@ -655,6 +656,15 @@ REUSABLE COMPONENTS
 .qr-code {
     width: 200px;
     height: 200px;
+}
+
+/* ---------------
+    SUCCESS
+-----------------*/
+
+.success {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/tents-girl.jpg');
+    font-size: 200%;
 }
 
 @media screen and (max-width: 1120px) {

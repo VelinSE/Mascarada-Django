@@ -1,4 +1,3 @@
-MASCARADA
+#MASCARADA
 
-Production link:
-https://quiet-lowlands-96728.herokuapp.com/
+#Django back-end website for MASCARADA Music Festival
